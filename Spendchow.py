@@ -15,6 +15,12 @@ NetIncome=0
 Revenue=2500
 def spendchow():
     os.system('clear')
-    print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now youu only have $9,000 as your current cash."+Okay)
+    print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now youu only have $9,000 as your current cash.\n"+Okay)
     #Every calculation between cash and expense will be at the every 4th week, good luck.
+    ready=input(Chowred+"Are you ready for this unbelievable journey of tracking expenses, also full of forces?\n"+Okay)
+    if ready =="No" or ready =="no":
+        print(Wasted+"No, you are ready"+Okay)
+    week=1
+    while week<17:
+        
 spendchow()
