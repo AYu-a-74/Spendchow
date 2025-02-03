@@ -24,18 +24,45 @@ def spendchow():
     TotalExpenses=0
     NetIncome=0
     Revenue=2500
+    Spendtime=2
     week=1
+    cheque={1: 'buy Physics Textbook'}
+    amount={1: 'Costs $1000'}
+    date={1: 'Week0'}
     while week<17:
         if week%2==0:
             print(Victory+"Your revenue! Take it! (Chow Face)")
             Cash=Cash+Revenue
-        Spendtime=1
-        cheque={}
-        amount={}
-        date={}
         OneTimeSpend=0
+        print(Chowred)
+        Continue=input("Do you want to continue your day or track your current expenses and assets? ")
+        Continue=Continue.lower()
+        while True:
+            if Continue=="continue":
+                print(Chowgreen+"As you wish. (Chow Face)"+Okay)
+                time.sleep(2)
+                break
+            elif Continue=="track":
+                print(BluegreenChow+"As you wish. (Chow Face)")
+                print(Chowgreen+"Current expense cheques:")
+                print(cheque)
+                print(Victory+"Current amount spend:")
+                print(amount)
+                print(BluegreenChow+"Current expense date:")
+                print(date)
+                print(ReverseChow)
+                print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
+                print(Okay)
+                print(f"You still have ${Cash}.")
+            else:
+                print(Wasted+"I will consider that you said 'continue'.")
+                time.sleep(2)
+                break
+            print(Chowred)
+            Continue=input("Do you want to continue your day now? ")
+        os.system('clear')
         print(Wasted+"You feel bored and you want to spend money."+Chowred)
-        cheque[Spendtime]=("buys "+input("What do you want to buy?"))
+        cheque[Spendtime]=("buy "+input("What do you want to buy?"))
         OneTimeSpend=int(input("How much is it?"))
         amount[Spendtime]="Costs $"+str(OneTimeSpend)
         date[Spendtime]="Week"+str(week)
@@ -58,6 +85,9 @@ def spendchow():
             date[Spendtime]="Week"+str(week)
             Spendtime+=1
             WhatYouNeed[7]+=OneTimeSpend
+            print(Wasted)
+            print(f"You need to pay ${OneTimeSpend}.")
+            print(Okay)
             better=input("Are you feeling better now? ")
         print(Chowgreen+"Current expense cheques:")
         print(cheque)
