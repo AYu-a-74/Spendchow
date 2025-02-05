@@ -1,6 +1,9 @@
 import os
+<<<<<<< HEAD
+=======
 import random
 import time
+>>>>>>> ae6034dd9c0a0b5d40b24eb0273c7388a4d363b2
 Victory="\033[1;33m"
 Wasted="\033[1;35m"
 Okay="\033[0;30m"
@@ -9,6 +12,22 @@ Chowgreen="\033[1;32m"
 Chowblue="\033[1;34m"
 BluegreenChow="\033[1;36m"
 ReverseChow="\033[1;37;40m"
+<<<<<<< HEAD
+def spendchow():
+    os.system('clear')
+    print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now youu only have $9,000 as your current cash."+Okay)
+spendchow()
+
+TotalExpenses = WhatYouNeed [0] + WhatYouNeed [1] + WhatYouNeed [2] + WhatYouNeed [3] + WhatYouNeed [4] + WhatYouNeed [5] + WhatYouNeed [6] + WhatYouNeed [7] + WhatYouNeed [8] + WhatYouNeed [9] + WhatYouNeed [10]
+Revenue = NetIncome - TotalExpenses
+
+
+
+
+
+
+
+=======
 WhatYouSpend=["RentExpense","FoodExpense","TaxExpense","UtilityExpense","TransportationExpense","TelephoneEpense","MiscellaneousExpense","FineExpense","ChowVaultCharges","PhysicsExpense","ForceExpense"]
 WhatYouNeed=[0,0,0,0,0,0,0,0,0,1000,0]
 def spendchow():
@@ -107,3 +126,4 @@ def spendchow():
         os.system('clear')
         print(Victory+"A new week to keep track of your money!"+Okay)
 spendchow()
+>>>>>>> ae6034dd9c0a0b5d40b24eb0273c7388a4d363b2
