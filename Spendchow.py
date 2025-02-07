@@ -121,6 +121,28 @@ def spendchow():
             print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
             print(Okay)
             print(f"You still have ${Cash}.")
+        
+        if dice<=5:
+            print(Chowred+"Bank text message : A $600 maintenance fee is charged for maintaining an bank account!"+Okay)
+            cheque[Spendtime]="Being charged for maintenance fee"
+            OneTimeSpend=dice*50
+            amount[Spendtime]="Costs $"+str(OneTimeSpend)
+            date[Spendtime]="Week"+str(week)
+            Spendtime+=1
+            WhatYouNeed[9]+=OneTimeSpend
+            print(Wasted)
+            print(f"Opps! You need to pay ${OneTimeSpend}.")
+            print(Okay)
+            print(Chowgreen+"Current expense cheques:")
+            print(cheque)
+            print(Victory+"Current amount spend:")
+            print(amount)
+            print(BluegreenChow+"Current expense date:")
+            print(date)
+            print(ReverseChow)
+            print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
+            print(Okay)
+            print(f"You still have ${Cash}.")
 
         if week%4==0:
             time.sleep(1)
