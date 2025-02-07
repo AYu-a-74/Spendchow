@@ -1,9 +1,6 @@
 import os
-<<<<<<< HEAD
-=======
 import random
 import time
->>>>>>> ae6034dd9c0a0b5d40b24eb0273c7388a4d363b2
 Victory="\033[1;33m"
 Wasted="\033[1;35m"
 Okay="\033[0;30m"
@@ -12,27 +9,11 @@ Chowgreen="\033[1;32m"
 Chowblue="\033[1;34m"
 BluegreenChow="\033[1;36m"
 ReverseChow="\033[1;37;40m"
-<<<<<<< HEAD
 def spendchow():
     os.system('clear')
     print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now youu only have $9,000 as your current cash."+Okay)
-spendchow()
-
-TotalExpenses = WhatYouNeed [0] + WhatYouNeed [1] + WhatYouNeed [2] + WhatYouNeed [3] + WhatYouNeed [4] + WhatYouNeed [5] + WhatYouNeed [6] + WhatYouNeed [7] + WhatYouNeed [8] + WhatYouNeed [9] + WhatYouNeed [10]
-Revenue = NetIncome - TotalExpenses
-
-
-
-
-
-
-
-=======
-WhatYouSpend=["RentExpense","FoodExpense","TaxExpense","UtilityExpense","TransportationExpense","TelephoneEpense","MiscellaneousExpense","FineExpense","ChowVaultCharges","PhysicsExpense","ForceExpense"]
-WhatYouNeed=[0,0,0,0,0,0,0,0,0,1000,0]
-def spendchow():
-    os.system('clear')
-    print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now youu only have $9,000 as your current cash.\n"+Okay)
+    WhatYouSpend=["RentExpense","FoodExpense","TaxExpense","UtilityExpense","TransportationExpense","TelephoneEpense","MiscellaneousExpense","FineExpense","ChowVaultCharges","PhysicsExpense","ForceExpense"]
+    WhatYouNeed=[0,0,0,0,0,0,0,0,0,1000,0]
     #Every calculation between cash and expense will be at the every 4th week, good luck.
     ready=input(Chowred+"Are you ready for this unbelievable journey of tracking expenses, also full of forces?\n"+Okay)
     if ready =="No" or ready =="no":
@@ -41,20 +22,48 @@ def spendchow():
     os.system('clear')
     Cash=10000
     TotalExpenses=0
-    NetIncome=0
+    AccountsPayable=0
     Revenue=2500
+    Spendtime=2
     week=1
+    cheque={1: 'buy Physics Textbook'}
+    amount={1: 'Costs $1000'}
+    date={1: 'Week0'}
+    rangee=range(11)
     while week<17:
         if week%2==0:
             print(Victory+"Your revenue! Take it! (Chow Face)")
             Cash=Cash+Revenue
-        Spendtime=1
-        cheque={}
-        amount={}
-        date={}
         OneTimeSpend=0
+        print(Chowred)
+        Continue=input("Do you want to continue your day or track your current expenses and assets? ")
+        Continue=Continue.lower()
+        while True:
+            if Continue=="continue":
+                print(Chowgreen+"As you wish. (Chow Face)"+Okay)
+                time.sleep(2)
+                break
+            elif Continue=="track":
+                print(BluegreenChow+"As you wish. (Chow Face)")
+                print(Chowgreen+"Current expense cheques:")
+                print(cheque)
+                print(Victory+"Current amount spend:")
+                print(amount)
+                print(BluegreenChow+"Current expense date:")
+                print(date)
+                print(ReverseChow)
+                print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
+                print(Okay)
+                print(f"You still have ${Cash}.")
+            else:
+                print(Wasted+"I will consider that you said 'continue'.")
+                time.sleep(2)
+                break
+            print(Chowred)
+            Continue=input("Do you want to continue your day now? ")
+        os.system('clear')
         print(Wasted+"You feel bored and you want to spend money."+Chowred)
-        cheque[Spendtime]=("buys "+input("What do you want to buy?"))
+        cheque[Spendtime]=("buy "+input("What do you want to buy?"))
         OneTimeSpend=int(input("How much is it?"))
         amount[Spendtime]="Costs $"+str(OneTimeSpend)
         date[Spendtime]="Week"+str(week)
@@ -77,6 +86,9 @@ def spendchow():
             date[Spendtime]="Week"+str(week)
             Spendtime+=1
             WhatYouNeed[7]+=OneTimeSpend
+            print(Wasted)
+            print(f"You need to pay ${OneTimeSpend}.")
+            print(Okay)
             better=input("Are you feeling better now? ")
         print(Chowgreen+"Current expense cheques:")
         print(cheque)
@@ -88,6 +100,29 @@ def spendchow():
         print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
         print(Okay)
         print(f"You still have ${Cash}.")
+        if week%4==0:
+            time.sleep(1)
+            print(Chowred+"Oh No! You need to pay your monthly expense now!\n")
+            TotalExpenses = WhatYouNeed [0] + WhatYouNeed [1] + WhatYouNeed [2] + WhatYouNeed [3] + WhatYouNeed [4] + WhatYouNeed [5] + WhatYouNeed [6] + WhatYouNeed [7] + WhatYouNeed [8] + WhatYouNeed [9] + WhatYouNeed [10]
+            Cash = Cash - TotalExpenses
+            Cash =Cash-AccountsPayable
+            print(Wasted)
+            print(f"You need to pay ${TotalExpenses}.")
+            cheque={}
+            amount={}
+            date={}
+            for i in rangee:
+                WhatYouNeed[i]=0
+            Spendtime=1
+            if Cash>=0:
+                print(Okay)
+                print(f"Now you have ${Cash} in your bank.")
+            else:
+                print(Wasted)
+                AccountsPayable=0-Cash
+                print(f"Oh No! You are bankrupt! However, your budget dont stop now. You now have an accounts payable of ${AccountsPayable} an you need to pay it ASAP.")
+                Cash=0
+            print(Okay)
         week+=1
         ready=input("Are you ready for the next day? ")
         if ready=="no" or ready =="No":
@@ -96,4 +131,3 @@ def spendchow():
         os.system('clear')
         print(Victory+"A new week to keep track of your money!"+Okay)
 spendchow()
->>>>>>> ae6034dd9c0a0b5d40b24eb0273c7388a4d363b2
