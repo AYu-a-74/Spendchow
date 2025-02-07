@@ -11,7 +11,7 @@ BluegreenChow="\033[1;36m"
 ReverseChow="\033[1;37;40m"
 def spendchow():
     os.system('clear')
-    print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now youu only have $9,000 as your current cash."+Okay)
+    print(Chowgreen+"You have $10,000 and you need to control your spending so that you dont experience a force as you overspend your money. Chow Mian already assigned you a large expense on buying Physics textbok for $1,000. So now you only have $9,000 as your current cash."+Okay)
     WhatYouSpend=["RentExpense","FoodExpense","TaxExpense","UtilityExpense","TransportationExpense","TelephoneEpense","MiscellaneousExpense","FineExpense","ChowVaultCharges","PhysicsExpense","ForceExpense"]
     WhatYouNeed=[0,0,0,0,0,0,0,0,0,1000,0]
     #Every calculation between cash and expense will be at the every 4th week, good luck.
@@ -124,10 +124,54 @@ def spendchow():
                 Cash=0
             print(Okay)
         week+=1
+        if week==17:
+            print(Chowblue)
+            result=input("You complete the game! Do you want to see your final results? ")
+            result=result.lower()
+            if result=="yes":
+                print(Chowgreen+"As you wish. (Chow Face)")
+            elif result=="no":
+                print(Wasted+"No, you want.")
+            time.sleep(2)
+            break
         ready=input("Are you ready for the next day? ")
         if ready=="no" or ready =="No":
             print("No, you are.")
         time.sleep(3)
         os.system('clear')
         print(Victory+"A new week to keep track of your money!"+Okay)
+    os.system('clear')
+    if AccountsPayable>0:
+        print(Wasted+"Oh No! You failed to manage your expenses as you owe Chow Mian some money!")
+        if AccountsPayable>=200:
+            print(f"You only owed ${AccountsPayable} from Chow Mian. Good try but failed, so your result is...")
+            print(Chowred+"IM GONNA APPLY A FORCE!")
+        elif AccountsPayable>=2000:
+            print(f"You are failing this task slightly by oweing ${AccountPayable}, maybe next time you need to be alert. However, now you are only...")
+            print(Chowred+"EXPERIENCING A FORRRCEEEE!!!")
+        elif AccountsPayable>=20000:
+            print(f"This is your big failure. You owes ${AccountsPayable}!! You definitely need to practice more or else you cannot even live. I hope you will learn under...")
+            print(Chowred+"THIS FOOORRRRRCCCCEEEEEEEE!!!!!")
+        elif AccountsPayable>=1000000:
+            print(Chowred)
+            print(f"What are you doing to owe ${AccountsPayable}! You dont respect Chow Mian's money and it is your pleasure to recive...")
+            print("A LARRRRGGEEEE FOOOOORRRRRRCCCCCEEEEEEEEE!!!!!")
+        else:
+            print(Chowred)
+            print(f"What! ${AccountsPayable}!!! Chow Mian is broke! Chow Mian never want to work with you again. And before that...")
+            print("IM GONNNNAAAAA AAPPPPLLLYYYYYY AAAAAA FFOOOORRRRCCCEEEEEEEEE!!!!!!!!!!!!!!!")
+    else:
+        print(Victory+"Congratulations! You successfully managed your expenses within 4 months!")
+        if Cash<=500:
+            print(f"You only have ${Cash} left, so suspenseful.")
+        elif Cash<=2500:
+            print(f"You managed to keep ${Cash} of cash in your bank, and now you can safely store them in your savings!")
+        elif Cash<=10000:
+            print(f"Wow! You saved ${Cash}! You can enjoy your wealth for at least one month!")
+        elif Cash<=29000:
+            print(f"Oh My God! You must be starving and tiring to save ${Cash}! Poor player, now you can spend them freely!")
+        else:
+            print(ReverseChow+"How are you getting so much money in your bank! You are either too lucky or you are a Hacker! Chow Mian HATES HACKERS!!!")
+            print(Chowred+"IM GONNA APPLY A FOOORRRRRCCCCCEEEEEEEEEEEEE!!!!!")
+            #A Fun Fact: If you put a large enough negative number in one of your expense entry will cause this situation, which is unfair and nonrelistic.
 spendchow()
