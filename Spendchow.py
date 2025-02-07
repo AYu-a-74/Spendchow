@@ -100,6 +100,28 @@ def spendchow():
         print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
         print(Okay)
         print(f"You still have ${Cash}.")
+
+        dice=random.randint(1,10)
+        if dice>=5:
+            print(Victory+"The almighty ChowVault made an accounting mistake! In order to make you feel better, ChowVault decide to fund you a 'Large' amount of cash!")
+            OneTimeRevenue=200
+            amount[Spendtime]="Costs $"+str(OneTimeRevenue)
+            date[Spendtime]="Week"+str(week)
+            Spendtime+=1
+            Cash=Cash+OneTimeRevenue
+            print (f"Congratualtions!! You earned ${OneTimeRevenue}.")
+            print (Okay)
+            print(Chowgreen+"Current expense cheques:")
+            print(cheque)
+            print(Victory+"Current amount spend:")
+            print(amount)
+            print(BluegreenChow+"Current expense date:")
+            print(date)
+            print(ReverseChow)
+            print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
+            print(Okay)
+            print(f"You still have ${Cash}.")
+
         if week%4==0:
             time.sleep(1)
             print(Chowred+"Oh No! You need to pay your monthly expense now!\n")
