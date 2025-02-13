@@ -30,6 +30,7 @@ def spendchow():
     amount={1: 'Costs $1000'}
     date={1: 'Week0'}
     rangee=range(11)
+    lotto=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     while week<17:
         if week%2==0:
             print(Victory+"Your revenue! Take it! (Chow Face)")
@@ -62,6 +63,30 @@ def spendchow():
             print(Chowred)
             Continue=input("Do you want to continue your day now? ")
         os.system('clear')
+        print(Victory+"Lotto time! You can use $50 to buy a lotto number, and every month, we will have a winner!")
+        gamble=input(Chowred+"Do you want to buy that lotto? ")
+        gamble=gamble.lower()
+        if gamble=="yes":
+            print(Chowgreen+"There are 30 lotto balls and you can buy one each week.")
+            print(Chowred)
+            while True:
+                try:
+                    ball=int(input("Which number do you want to buy? "))
+                    lotto[ball-1]=1
+                    cheque[Spendtime]=("buy lotto")
+                    OneTimeSpend=50
+                    amount[Spendtime]="Costs $"+str(OneTimeSpend)
+                    date[Spendtime]="Week"+str(week)
+                    Spendtime+=1
+                    break
+                except:
+                    print("Not valid")
+            print(Chowblue)
+            print(f"You bought No.{ball}, hope it will win the prize.")
+            time.sleep(2)
+        else:
+            print(Chowblue+"So sad, you give up your chance to become rich.")
+            time.sleep(1)
         print(Wasted+"You feel bored and you want to spend money."+Chowred)
         cheque[Spendtime]=("buy "+input("What do you want to buy?"))
         OneTimeSpend=int(input("How much is it?"))
@@ -79,6 +104,7 @@ def spendchow():
                 print("These are not valid.")
         fined=random.randint(1,10)
         if fined>=8:
+            print("\n")
             print(Chowred+"Oh No! You are caught by the police due to speeding! You now need to pay a fine now!"+Okay)
             cheque[Spendtime]="Being Fined By Speeding"
             OneTimeSpend=fined*50
@@ -90,6 +116,33 @@ def spendchow():
             print(f"You need to pay ${OneTimeSpend}.")
             print(Okay)
             better=input("Are you feeling better now? ")
+        ChargeChow=random.randint(1,20)
+        if ChargeChow>=13:
+            ChangeOrCharge=random.randint(1,10)
+            if ChangeOrCharge<=5:
+                print("\n")
+                print(Victory+"The almighty ChowVault made an accounting mistake! In order to make you feel better, ChowVault decide to fund you a 'Large' amount of cash!")
+                OneTimeRevenue=40*ChangeOrCharge
+                amount[Spendtime]="Costs $"+str(OneTimeRevenue)
+                date[Spendtime]="Week"+str(week)
+                Spendtime+=1
+                Cash=Cash+OneTimeRevenue
+                print (f"Congratualtions!! You earned ${OneTimeRevenue}.")
+                print (Okay)
+                better=input("Are you feeling better now? ")
+            elif ChangeOrCharge>5:
+                print("\n")
+                print(Chowred+"ChowVault text message : A 'small' amount of maintainance fee is charged for maintaining an ChowVault account that was messed up by a Thief Chow Mian!"+Okay)
+                cheque[Spendtime]="Being charged for maintenance fee"
+                OneTimeSpend=ChangeOrCharge*40
+                amount[Spendtime]="Costs $"+str(OneTimeSpend)
+                date[Spendtime]="Week"+str(week)
+                Spendtime+=1
+                WhatYouNeed[9]+=OneTimeSpend
+                print(Wasted)
+                print(f"Opps! You need to pay ${OneTimeSpend} for ChowVault.")
+                print(Okay)
+                better=input("Are you feeling better now? ")
         print(Chowgreen+"Current expense cheques:")
         print(cheque)
         print(Victory+"Current amount spend:")
@@ -100,49 +153,6 @@ def spendchow():
         print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
         print(Okay)
         print(f"You still have ${Cash}.")
-
-        dice=random.randint(1,10)
-        if dice>=5:
-            print(Victory+"The almighty ChowVault made an accounting mistake! In order to make you feel better, ChowVault decide to fund you a 'Large' amount of cash!")
-            OneTimeRevenue=200
-            amount[Spendtime]="Costs $"+str(OneTimeRevenue)
-            date[Spendtime]="Week"+str(week)
-            Spendtime+=1
-            Cash=Cash+OneTimeRevenue
-            print (f"Congratualtions!! You earned ${OneTimeRevenue}.")
-            print (Okay)
-            print(Chowgreen+"Current expense cheques:")
-            print(cheque)
-            print(Victory+"Current amount spend:")
-            print(amount)
-            print(BluegreenChow+"Current expense date:")
-            print(date)
-            print(ReverseChow)
-            print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
-            print(Okay)
-            print(f"You still have ${Cash}.")
-        
-        if dice<=5:
-            print(Chowred+"Bank text message : A $600 maintenance fee is charged for maintaining an bank account!"+Okay)
-            cheque[Spendtime]="Being charged for maintenance fee"
-            OneTimeSpend=dice*50
-            amount[Spendtime]="Costs $"+str(OneTimeSpend)
-            date[Spendtime]="Week"+str(week)
-            Spendtime+=1
-            WhatYouNeed[9]+=OneTimeSpend
-            print(Wasted)
-            print(f"Opps! You need to pay ${OneTimeSpend}.")
-            print(Okay)
-            print(Chowgreen+"Current expense cheques:")
-            print(cheque)
-            print(Victory+"Current amount spend:")
-            print(amount)
-            print(BluegreenChow+"Current expense date:")
-            print(date)
-            print(ReverseChow)
-            print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
-            print(Okay)
-            print(f"You still have ${Cash}.")
 
         if week%4==0:
             time.sleep(1)
