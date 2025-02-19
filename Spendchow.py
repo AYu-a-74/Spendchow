@@ -56,6 +56,9 @@ def spendchow():
                 print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
                 print(Okay)
                 print(f"You still have ${Cash}.")
+                for boughtlotto in range(1,30):
+                    if lotto[boughtlotto-1]==1:
+                        print(f"You have ball No.{boughtlotto}.")
             else:
                 print(Wasted+"I will consider that you said 'continue'.")
                 time.sleep(2)
@@ -72,13 +75,19 @@ def spendchow():
             while True:
                 try:
                     ball=int(input("Which number do you want to buy? "))
-                    lotto[ball-1]=1
-                    cheque[Spendtime]=("buy lotto")
-                    OneTimeSpend=50
-                    amount[Spendtime]="Costs $"+str(OneTimeSpend)
-                    date[Spendtime]="Week"+str(week)
-                    Spendtime+=1
-                    break
+                    if lotto[ball-1]==1:
+                        print("You already bought that, or do you want to lose all of your money on this lotto?")
+                    elif ball<=0:
+                        print("Chow Mian dont afford that for you!")
+                    else:
+                        lotto[ball-1]=1
+                        cheque[Spendtime]=("buy lotto")
+                        OneTimeSpend=50
+                        amount[Spendtime]="Costs $"+str(OneTimeSpend)
+                        date[Spendtime]="Week"+str(week)
+                        WhatYouNeed[6]+=OneTimeSpend
+                        Spendtime+=1
+                        break
                 except:
                     print("Not valid")
             print(Chowblue)
@@ -143,6 +152,21 @@ def spendchow():
                 print(f"Opps! You need to pay ${OneTimeSpend} for ChowVault.")
                 print(Okay)
                 better=input("Are you feeling better now? ")
+        if week%4==0:
+            prize=random.randint(1,30)
+            print(Victory+"Its the monthly Lotto time! Lets see who will win the royal Chow Mian Prize! ")
+            time.sleep(0.5)
+            print("The winner is..........")
+            time.sleep(0.5)
+            print(f"Ball No.{prize-1}!!!")
+            if lotto[prize-1]==1:
+                print(Victory+"Congratulations! Your Chow Mian Lotto wins a prize!")
+                Cash+=2000
+            else:
+                print(Wasted+"Sorry, you dont win the prize this time! ChowVault hope you win it next time!")
+            lotto=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            print(Okay)
+            better=input("Are you feeling better now? ")
         print(Chowgreen+"Current expense cheques:")
         print(cheque)
         print(Victory+"Current amount spend:")
@@ -153,6 +177,10 @@ def spendchow():
         print(f"You have spend:\n${WhatYouNeed[0]} for Rent,\n${WhatYouNeed[1]} for Food,\n${WhatYouNeed[2]} for Tax,\n${WhatYouNeed[3]} for Utility,\n${WhatYouNeed[4]} for Transits,\n${WhatYouNeed[5]} for Telepone,\n${WhatYouNeed[6]} for Minor Uses,\n${WhatYouNeed[7]} for Being Fined\n${WhatYouNeed[8]} for Chowvault's Charges,\n${WhatYouNeed[9]} for Physics,\n${WhatYouNeed[10]} for APPLYING FORCES.")
         print(Okay)
         print(f"You still have ${Cash}.")
+        for boughtlotto in range(1,30):
+            if lotto[boughtlotto-1]==1:
+                print(f"You have ball No.{boughtlotto}.")
+            
 
         if week%4==0:
             time.sleep(1)
