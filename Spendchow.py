@@ -147,7 +147,7 @@ def spendchow():
                 amount[Spendtime]="Costs $"+str(OneTimeSpend)
                 date[Spendtime]="Week"+str(week)
                 Spendtime+=1
-                WhatYouNeed[9]+=OneTimeSpend # the expesnes amount will be automatically add to category 9
+                WhatYouNeed[8]+=OneTimeSpend # the expesnes amount will be automatically add to category 8
                 print(Wasted)
                 print(f"Opps! You need to pay ${OneTimeSpend} for ChowVault.")
                 print(Okay)
