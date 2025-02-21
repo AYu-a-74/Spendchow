@@ -112,7 +112,7 @@ def spendchow():
             else:
                 print("These are not valid.")
         fined=random.randint(1,10) # use randome number to determined the fine
-        if fined>=8: # if the the number is greater than 8
+        if fined>=8: # if the the number is smaller than 8
             print("\n")
             print(Chowred+"Oh No! You are caught by the police due to speeding! You now need to pay a fine now!"+Okay) # fine charge for spedding 
             cheque[Spendtime]="Being Fined By Speeding"
@@ -196,7 +196,7 @@ def spendchow():
             for i in rangee:
                 WhatYouNeed[i]=0
             Spendtime=1
-            if Cash>=0: # if the cash is greater than 0 
+            if Cash>=0: # if the cash is smaller than 0 
                 print(Okay)
                 print(f"Now you have ${Cash} in your bank.") # print the amont of cash
             else: # if the cash is lower than 0
@@ -225,16 +225,16 @@ def spendchow():
     os.system('clear')
     if AccountsPayable>0: # if the account payable is greater than 0 
         print(Wasted+"Oh No! You failed to manage your expenses as you owe Chow Mian some money!") # cuz you bankrupt
-        if AccountsPayable>=200: #if the account payable is greater and equal to than 200
+        if AccountsPayable<=200: #if the account payable is smaller and equal to than 200
             print(f"You only owed ${AccountsPayable} from Chow Mian. Good try but failed, so your result is...")
             print(Chowred+"IM GONNA APPLY A FORCE!")
-        elif AccountsPayable>=2000: # if the account payable is greater and equal to than 2000 
+        elif AccountsPayable<=2000: # if the account payable is smaller and equal to than 2000 
             print(f"You are failing this task slightly by oweing ${AccountPayable}, maybe next time you need to be alert. However, now you are only...")
             print(Chowred+"EXPERIENCING A FORRRCEEEE!!!")
-        elif AccountsPayable>=20000: # if the account payable is greater and equal to than 20000
+        elif AccountsPayable<=20000: # if the account payable is smaller and equal to than 20000
             print(f"This is your big failure. You owes ${AccountsPayable}!! You definitely need to practice more or else you cannot even live. I hope you will learn under...")
             print(Chowred+"THIS FOOORRRRRCCCCEEEEEEEE!!!!!")
-        elif AccountsPayable>=1000000: # if the account payable is greater and equal to than 1000000
+        elif AccountsPayable<=1000000: # if the account payable is smaller and equal to than 1000000
             print(Chowred)
             print(f"What are you doing to owe ${AccountsPayable}! You dont respect Chow Mian's money and it is your pleasure to recive...")
             print("A LARRRRGGEEEE FOOOOORRRRRRCCCCCEEEEEEEEE!!!!!")
